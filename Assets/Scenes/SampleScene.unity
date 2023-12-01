@@ -278,6 +278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: elma (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2465804388152706571, guid: c0bc8ce079531374497c187b4d8efdf2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7694037101291455086, guid: c0bc8ce079531374497c187b4d8efdf2, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -659,9 +663,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 308506483}
+  - component: {fileID: 308506484}
   m_Layer: 0
   m_Name: appleSP
-  m_TagString: Untagged
+  m_TagString: AppleSP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -682,6 +687,19 @@ Transform:
   m_Father: {fileID: 1197379069}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &308506484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308506482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a2cacc5d186e04ba876dae83283c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAvailable: 0
 --- !u!1 &451329583
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +749,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1156,9 +1174,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 861741437}
+  - component: {fileID: 861741438}
   m_Layer: 0
   m_Name: appleSP (1)
-  m_TagString: Untagged
+  m_TagString: AppleSP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1179,6 +1198,19 @@ Transform:
   m_Father: {fileID: 1197379069}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &861741438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861741436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a2cacc5d186e04ba876dae83283c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAvailable: 0
 --- !u!1 &873588061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,9 +1484,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1251446024}
+  - component: {fileID: 1251446025}
   m_Layer: 0
   m_Name: appleSP (2)
-  m_TagString: Untagged
+  m_TagString: AppleSP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1475,6 +1508,19 @@ Transform:
   m_Father: {fileID: 1197379069}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1251446025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251446023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a2cacc5d186e04ba876dae83283c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAvailable: 0
 --- !u!1001 &1300406093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1692,6 +1738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1475501110}
+  - component: {fileID: 1475501111}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: Untagged
@@ -1714,6 +1761,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1475501111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475501109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf30342ed4605da4b878fe67c006786e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outSideApples: []
+  appleObjects: []
+  appleSpawnPoints: []
 --- !u!1 &1543042155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,7 +2239,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2282,7 +2344,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2524,7 +2586,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2655,9 +2717,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2114257962}
+  - component: {fileID: 2114257963}
   m_Layer: 0
   m_Name: appleSP (3)
-  m_TagString: Untagged
+  m_TagString: AppleSP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2678,6 +2741,19 @@ Transform:
   m_Father: {fileID: 1197379069}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2114257963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114257961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a2cacc5d186e04ba876dae83283c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAvailable: 0
 --- !u!1001 &2141524101
 PrefabInstance:
   m_ObjectHideFlags: 0
