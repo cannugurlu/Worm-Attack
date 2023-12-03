@@ -8,6 +8,7 @@ public class wormMovement : MonoBehaviour
     Transform closestTarget = null;
     float closestDistance = Mathf.Infinity;
     Vector3 currentPosition;
+    public float speed;
 
     void Start()
     {
@@ -18,8 +19,13 @@ public class wormMovement : MonoBehaviour
         gameObject.transform.LookAt(closestTarget.transform.position);
 
         print(closestTarget.transform.position);
+
     }
 
+    private void Update()
+    {
+        move();
+    }
     private void FindClosestApple()
     {
         currentPosition = transform.position;
@@ -34,5 +40,11 @@ public class wormMovement : MonoBehaviour
                 closestTarget = targetObject.transform;
             }
         }
+    }
+
+
+    public void move()
+    {
+        gameObject.transform.position += transform.forward * speed*Time.deltaTime;
     }
 }
