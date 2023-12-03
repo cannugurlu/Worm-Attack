@@ -9,6 +9,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] public List<GameObject> outSideApples = new List<GameObject>();
     [SerializeField] GameObject[] appleObjects;
     [SerializeField] GameObject[] appleSpawnPoints;
+    public int defeatedWorms=0;
     Vector3 emptyPos;
     private void Awake()
     {
