@@ -12,12 +12,14 @@ public class appleDetector : MonoBehaviour
     private int i = 1;
     bool isTouching = false;
     public bool isHurt = false;
+    AudioSource audioSource;
 
     private void Start()
     {
         parentWorm = gameObject.transform.parent.gameObject;
         initialSpeed = parentWorm.GetComponent<wormMovement>().speed;
         initialRot = parentWorm.transform.eulerAngles;
+        audioSource = GameObject.Find("audioSource").GetComponent<AudioSource>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -35,6 +37,12 @@ public class appleDetector : MonoBehaviour
         {
             print("sepetttt");
             BasketDetected();
+        }
+
+        if(other.gameObject.tag == "Finish")
+        {
+            print("destroyed" + gameObject.transform.parent.gameObject.name);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 
@@ -66,6 +74,7 @@ public class appleDetector : MonoBehaviour
 
             //elmanýn boyunu küçült
             detectedApple.transform.GetChild(0).transform.DOScale(detectedApple.GetComponent<appleStats>().health*0.3f, 0.2f);
+            audioSource.Play();
 
 
             //eðer elmanýn caný 0 veya küçükse geri dön

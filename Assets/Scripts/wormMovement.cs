@@ -26,6 +26,7 @@ public class wormMovement : MonoBehaviour
     {
         move();
     }
+
     private void FindClosestApple()
     {
         currentPosition = transform.position;

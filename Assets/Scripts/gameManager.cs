@@ -12,7 +12,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] public List<GameObject> outSideApples = new List<GameObject>();
     [SerializeField] GameObject[] appleObjects;
     [SerializeField] GameObject[] appleSpawnPoints;
-    public GameObject endPanel;
+    public GameObject endPanel,startPanel,pausePanel;
     public TextMeshProUGUI endText;
     public int defeatedWorms=0;
     public int appleNumber = 0;
@@ -22,7 +22,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI wormText;
     private void Awake()
     {
-
+        Time.timeScale = 0.0f;
 
         #region Adding Apples to Queue
 
@@ -56,10 +56,26 @@ public class gameManager : MonoBehaviour
         if(appleNumber == 0)
         {
             Time.timeScale = 0;
-            //appleText.
-            //wormText.
             endPanel.SetActive(true);
             endText.text = "You Have Defeated " + defeatedWorms.ToString() + " Worms!";
+        }
+
+        if(startPanel.active && Input.GetKeyDown(KeyCode.Space))
+        {
+            startGame();
+        }
+        else if(!startPanel.active && Input.GetKeyDown(KeyCode.Space) && Time.timeScale>0)
+        {
+            pauseGame();
+        }
+        else if(pausePanel.active && Input.GetKeyDown(KeyCode.Space))
+        {
+            startGame();
+        }
+
+        else if(endPanel.active && Input.GetKeyDown(KeyCode.Space))
+        {
+            restartGame();
         }
     }
     public void AppleEmplacement()
@@ -129,7 +145,17 @@ public class gameManager : MonoBehaviour
         }
     }
 
-
+    public void pauseGame()
+    {
+        Time.timeScale = 0f;
+        pausePanel.SetActive(true);
+    }
+    public void startGame()
+    {
+        Time.timeScale = 1;
+        startPanel.SetActive(false);
+        pausePanel.SetActive(false);
+    }
     public void restartGame()
     {
         SceneManager.LoadScene(0);

@@ -49,6 +49,7 @@ public class clickController : MonoBehaviour
             //parentWorm.GetComponent<wormMovement>().speed = -2 * initialSpeed;
             }
             GameObject.Find("gameManager").GetComponent<gameManager>().defeatedWorms += applesSet.Count;
+            Time.timeScale += 0.03f;
             applesSet.Clear();
             clickParticle.Stop();
         }
