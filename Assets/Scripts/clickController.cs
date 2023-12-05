@@ -42,6 +42,7 @@ public class clickController : MonoBehaviour
                 obj.transform.parent.GetChild(2).GetComponent<SphereCollider>().enabled = false;
                 obj.transform.parent.GetChild(1).DOLocalRotate(new Vector3(0, 270, 0), 0.5f);
                 obj.transform.parent.GetComponent<wormMovement>().speed = -2*obj.transform.parent.GetChild(2).GetComponent<appleDetector>().initialSpeed;
+
                 
                 applesSet.Add(obj);
             //parentWorm.transform.GetChild(1).DOLocalRotate(new Vector3(0, 270, 0), 0.5f);

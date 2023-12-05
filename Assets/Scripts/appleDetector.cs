@@ -29,7 +29,7 @@ public class appleDetector : MonoBehaviour
 
             detectedApple = other.gameObject;
 
-            StartCoroutine(animExit());
+            //StartCoroutine(animExit());
             parentWorm.GetComponent<wormMovement>().speed = 0;
             StartCoroutine(Attack());
         }
@@ -37,12 +37,6 @@ public class appleDetector : MonoBehaviour
         {
             print("sepetttt");
             BasketDetected();
-        }
-
-        if(other.gameObject.tag == "Finish")
-        {
-            print("destroyed" + gameObject.transform.parent.gameObject.name);
-            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 
@@ -69,8 +63,8 @@ public class appleDetector : MonoBehaviour
         while(!isHurt && detectedApple.GetComponent<appleStats>().health > 0 && isTouching && parentWorm.transform.eulerAngles.y == initialRot.y)
         {
             //boyutunu büyült küçült
-            parentWorm.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.2f).OnComplete(() =>
-            parentWorm.transform.DOScale(new Vector3(1, 1, 1), 0.2f));
+            //parentWorm.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.2f).OnComplete(() =>
+            //parentWorm.transform.DOScale(new Vector3(1, 1, 1), 0.2f));
 
             //elmanýn boyunu küçült
             detectedApple.transform.GetChild(0).transform.DOScale(detectedApple.GetComponent<appleStats>().health*0.3f, 0.2f);
@@ -95,6 +89,7 @@ public class appleDetector : MonoBehaviour
             parentWorm.transform.GetChild(1).DOLocalRotate(new Vector3(0, 270, 0), 0.5f);
             gameObject.GetComponent<SphereCollider>().enabled = false;
             parentWorm.GetComponent<wormMovement>().speed = -2 * initialSpeed;
+
         }
 
         //float appleSize = 1;

@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -13,12 +14,14 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject[] appleObjects;
     [SerializeField] GameObject[] appleSpawnPoints;
     public GameObject endPanel,startPanel,pausePanel;
-    public TextMeshProUGUI endText;
+    public TextMeshProUGUI endText,highScoreText;
     public int defeatedWorms=0;
     public int appleNumber = 0;
     Vector3 emptyPos;
 
-    public TextMeshProUGUI appleText;
+    public int highScore;
+
+    public Image appleImage;
     public TextMeshProUGUI wormText;
     private void Awake()
     {
@@ -49,12 +52,16 @@ public class gameManager : MonoBehaviour
     private void Update()
     {
         appleNumber = GameObject.FindGameObjectsWithTag("Apple").Length;
+        appleImage.fillAmount = (float)appleNumber / 10;
 
-        appleText.text = "You have "+ appleNumber.ToString() +" apples left.";
-        wormText.text = "You have defeated " + defeatedWorms.ToString() + " worms.";
+        wormText.text = defeatedWorms.ToString();
 
         if(appleNumber == 0)
         {
+            highScore = PlayerPrefs.GetInt("Highscore", 0);
+            CheckAndUpdateHighscore();
+            highScoreText.text = "High Score : " + highScore;
+
             Time.timeScale = 0;
             endPanel.SetActive(true);
             endText.text = "You Have Defeated " + defeatedWorms.ToString() + " Worms!";
@@ -76,6 +83,16 @@ public class gameManager : MonoBehaviour
         else if(endPanel.active && Input.GetKeyDown(KeyCode.Space))
         {
             restartGame();
+        }
+    }
+
+    public void CheckAndUpdateHighscore()
+    {
+        if (defeatedWorms > highScore)
+        {
+            highScore = defeatedWorms;
+            PlayerPrefs.SetInt("Highscore", highScore);
+            PlayerPrefs.Save();
         }
     }
     public void AppleEmplacement()
